@@ -6,6 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import { UsersListComponent } from './users-list/users-list.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,13 @@ import { UsersListComponent } from './users-list/users-list.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatListModule
+    MatListModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatSelectModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,6 +10,11 @@ import { User } from '../shared/user';
 export class UsersListComponent implements OnInit {
 
   usersList: User[] = [];
+  username: string;
+  name: string;
+  role: string;
+
+
   constructor(public userService: UsersService) { }
 
   ngOnInit(): void {
@@ -23,6 +28,32 @@ export class UsersListComponent implements OnInit {
   sort(direction: string) {
     console.log(direction);
     this.usersList = this.userService.sortUsers(direction);
+  }
+
+  addUser() {
+    this.userService.addUser({
+        id: Math.floor((Math.random() * 6) + 10),
+        name: this.name,
+        username: this.username,
+        email: "",
+        role: this.role,
+        phone: "",
+        website: ""
+    });
+
+    this.usersList = this.userService.getUsersList();
+
+  }
+
+  selectedItem(users: any) {
+    this.usersList = [];
+    users.forEach(element => {
+      this.selectedList.push(element.value);
+    })
+  }
+
+  deleteUsers() {
+
   }
  
 

@@ -38,7 +38,9 @@
 
 </div>
 
-<mat-selection-list #users (selectedElement)="selectItem(users.selectedOptions.selected)">
+
+<div *ngIf="usersList.length>0; else empty">
+  <mat-selection-list #users (selectionChange)="selectItem(users.selectedOptions.selected)">
     <mat-list-option 
     [value]="user"
     *ngFor="let user of usersList; let i = index"
@@ -57,11 +59,13 @@
         Выбрано пользователей: {{users.selectedOptions.selected.length}}
       </p>
     </div>
-    <button mat-raised-button color="warn" class="btn" (click)="deleteUsers()">Добавить</button>
+    <button mat-raised-button color="warn" class="btn" (click)="deleteUsers()">Удалить</button>
     <div>
 
     </div>
   </div>
-  
-  
- 
+</div>
+
+<ng-template #empty>
+  <div>Пользователей не найдено</div>
+</ng-template>
